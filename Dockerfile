@@ -16,6 +16,8 @@ RUN apt install -y libmemcached-dev && printf "\n" | pecl install memcached && d
 RUN apt install -y libpq-dev && docker-php-ext-install pdo_pgsql
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 RUN printf "\n" | pecl install apcu && docker-php-ext-enable apcu
+RUN docker-php-ext-install pcntl
+RUN apt install -y zip git
 
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
