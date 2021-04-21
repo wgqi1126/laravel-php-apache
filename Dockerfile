@@ -15,6 +15,7 @@ RUN printf "\n" | pecl install redis && docker-php-ext-enable redis
 RUN apt install -y libmemcached-dev && printf "\n" | pecl install memcached && docker-php-ext-enable memcached
 RUN apt install -y libpq-dev && docker-php-ext-install pdo_pgsql
 RUN pecl install xdebug && docker-php-ext-enable xdebug
+RUN pecl install xhprof && docker-php-ext-enable xhprof
 RUN printf "\n" | pecl install apcu && docker-php-ext-enable apcu
 RUN docker-php-ext-install pcntl
 RUN apt install -y zip git
